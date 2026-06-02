@@ -1,0 +1,30 @@
+# Python/runtime noise
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# OS/editor noise
+.DS_Store
+.vscode/
+
+# Do not upload source patient PDFs or local temporary files
+*.pdf
+*.PDF
+*.tmp
+*.log
+
+# Keep only selected generated submission artifacts
+outputs/*
+!outputs/
+!outputs/patient_2_summary.md
+!outputs/patient_2_trace.json
+!outputs/patient_2_validation_report.json
+!outputs/report.html
+!outputs/report.pdf

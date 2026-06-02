@@ -1,0 +1,375 @@
+{
+  "patient_id": "patient_2",
+  "source_paths": [
+    "/Users/lohith1024/Desktop/patient 2 (1) (1).pdf"
+  ],
+  "source_document_count": 61,
+  "missing_documents": [],
+  "missing_fields": [
+    {
+      "field": "patient_demographics",
+      "reason": "missing_from_source_documents",
+      "notes": [
+        "No source evidence found. Clinician review required."
+      ]
+    },
+    {
+      "field": "admission_date",
+      "reason": "missing_from_source_documents",
+      "notes": [
+        "No source evidence found. Clinician review required."
+      ]
+    },
+    {
+      "field": "discharge_date",
+      "reason": "missing_from_source_documents",
+      "notes": [
+        "No source evidence found. Clinician review required."
+      ]
+    },
+    {
+      "field": "procedures",
+      "reason": "missing_from_source_documents",
+      "notes": [
+        "No source evidence found. Clinician review required."
+      ]
+    },
+    {
+      "field": "allergies",
+      "reason": "missing_from_source_documents",
+      "notes": [
+        "No source evidence found. Clinician review required."
+      ]
+    }
+  ],
+  "pending_results": [
+    {
+      "field": "pending_results",
+      "value": "Urine culture and sensitivity sent- report awaited",
+      "evidence": [
+        {
+          "source_id": "patient 2 (1) (1)_page_001",
+          "quote": "Urine culture and sensitivity sent- report awaited"
+        }
+      ]
+    },
+    {
+      "field": "pending_culture_or_report",
+      "value": "Urine culture and sensitivity sent- report awaited",
+      "evidence": [
+        {
+          "source_id": "patient 2 (1) (1)_page_001",
+          "quote": "Urine culture and sensitivity sent- report awaited"
+        }
+      ]
+    }
+  ],
+  "conflicting_fields": [],
+  "unsupported_facts_removed": [],
+  "medication_extraction": {
+    "admission_medications": [],
+    "discharge_medications": [
+      {
+        "name": "raciper mg",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-0",
+        "duration": null,
+        "status": "unclear",
+        "notes": [
+          "Medication line contains OCR noise or mixed fragments."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "| | TAB. RACIPER MG | 1-0-0 TDANYS it B 5t (BEFORE FOOD)"
+          }
+        ]
+      },
+      {
+        "name": "emeset i",
+        "dose": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "status": "unclear",
+        "notes": [
+          "Dose, frequency, and duration were not clearly parsed."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "TAB. EMESET I DAYS"
+          }
+        ]
+      },
+      {
+        "name": "strong",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-0",
+        "duration": "15 DAYS",
+        "status": "structured",
+        "notes": [],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "' TABM STRONG - 1-0-0 15 DAYS"
+          }
+        ]
+      },
+      {
+        "name": "tan zevott",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-3",
+        "duration": "3 DAYS",
+        "status": "unclear",
+        "notes": [
+          "Medication line contains OCR noise or mixed fragments."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "< [Tan zevOTT - DAYS u TAB. ENTR( 1-0- 3 DAYS"
+          }
+        ]
+      },
+      {
+        "name": "meftal spas",
+        "dose": null,
+        "route": null,
+        "frequency": "sos",
+        "duration": null,
+        "status": "structured",
+        "notes": [],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": ". TAB. MEFTAL SPAS | TABSOS | 4 TABLETS"
+          }
+        ]
+      }
+    ],
+    "unclear_discharge_medications": [
+      {
+        "name": "raciper mg",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-0",
+        "duration": null,
+        "status": "unclear",
+        "notes": [
+          "Medication line contains OCR noise or mixed fragments."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "| | TAB. RACIPER MG | 1-0-0 TDANYS it B 5t (BEFORE FOOD)"
+          }
+        ]
+      },
+      {
+        "name": "emeset i",
+        "dose": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "status": "unclear",
+        "notes": [
+          "Dose, frequency, and duration were not clearly parsed."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "TAB. EMESET I DAYS"
+          }
+        ]
+      },
+      {
+        "name": "tan zevott",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-3",
+        "duration": "3 DAYS",
+        "status": "unclear",
+        "notes": [
+          "Medication line contains OCR noise or mixed fragments."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "< [Tan zevOTT - DAYS u TAB. ENTR( 1-0- 3 DAYS"
+          }
+        ]
+      }
+    ]
+  },
+  "medication_changes": [
+    {
+      "medication_name": "admission_medication_list",
+      "change_type": "unclear",
+      "documented_reason": null,
+      "needs_review": true,
+      "notes": [
+        "Admission medication list missing or empty."
+      ],
+      "admission_med": null,
+      "discharge_med": null
+    },
+    {
+      "medication_name": "raciper mg",
+      "change_type": "added",
+      "documented_reason": null,
+      "needs_review": true,
+      "notes": [
+        "Medication line could not be fully structured from OCR/source text.",
+        "Medication changed with no documented reason found."
+      ],
+      "admission_med": null,
+      "discharge_med": {
+        "name": "raciper mg",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-0",
+        "duration": null,
+        "status": "unclear",
+        "notes": [
+          "Medication line contains OCR noise or mixed fragments."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "| | TAB. RACIPER MG | 1-0-0 TDANYS it B 5t (BEFORE FOOD)"
+          }
+        ]
+      }
+    },
+    {
+      "medication_name": "emeset i",
+      "change_type": "added",
+      "documented_reason": null,
+      "needs_review": true,
+      "notes": [
+        "Medication line could not be fully structured from OCR/source text.",
+        "Medication changed with no documented reason found."
+      ],
+      "admission_med": null,
+      "discharge_med": {
+        "name": "emeset i",
+        "dose": null,
+        "route": null,
+        "frequency": null,
+        "duration": null,
+        "status": "unclear",
+        "notes": [
+          "Dose, frequency, and duration were not clearly parsed."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "TAB. EMESET I DAYS"
+          }
+        ]
+      }
+    },
+    {
+      "medication_name": "strong",
+      "change_type": "added",
+      "documented_reason": null,
+      "needs_review": true,
+      "notes": [
+        "Medication changed with no documented reason found."
+      ],
+      "admission_med": null,
+      "discharge_med": {
+        "name": "strong",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-0",
+        "duration": "15 DAYS",
+        "status": "structured",
+        "notes": [],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "' TABM STRONG - 1-0-0 15 DAYS"
+          }
+        ]
+      }
+    },
+    {
+      "medication_name": "tan zevott",
+      "change_type": "added",
+      "documented_reason": null,
+      "needs_review": true,
+      "notes": [
+        "Medication line could not be fully structured from OCR/source text.",
+        "Medication changed with no documented reason found."
+      ],
+      "admission_med": null,
+      "discharge_med": {
+        "name": "tan zevott",
+        "dose": null,
+        "route": null,
+        "frequency": "1-0-3",
+        "duration": "3 DAYS",
+        "status": "unclear",
+        "notes": [
+          "Medication line contains OCR noise or mixed fragments."
+        ],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": "< [Tan zevOTT - DAYS u TAB. ENTR( 1-0- 3 DAYS"
+          }
+        ]
+      }
+    },
+    {
+      "medication_name": "meftal spas",
+      "change_type": "added",
+      "documented_reason": null,
+      "needs_review": true,
+      "notes": [
+        "Medication changed with no documented reason found."
+      ],
+      "admission_med": null,
+      "discharge_med": {
+        "name": "meftal spas",
+        "dose": null,
+        "route": null,
+        "frequency": "sos",
+        "duration": null,
+        "status": "structured",
+        "notes": [],
+        "evidence": [
+          {
+            "source_id": "discharge_medication_record",
+            "quote": ". TAB. MEFTAL SPAS | TABSOS | 4 TABLETS"
+          }
+        ]
+      }
+    }
+  ],
+  "safety_concerns": [],
+  "clinician_review_flags": [
+    "pending_results: pending. Clinician review required.",
+    "patient_demographics: missing. Clinician review required.",
+    "admission_date: missing. Clinician review required.",
+    "discharge_date: missing. Clinician review required.",
+    "procedures: missing. Clinician review required.",
+    "allergies: missing. Clinician review required.",
+    "Medication reconciliation: admission_medication_list is unclear; no documented reason found.",
+    "Medication reconciliation: raciper mg is added; no documented reason found.",
+    "Medication reconciliation: emeset i is added; no documented reason found.",
+    "Medication reconciliation: strong is added; no documented reason found.",
+    "Medication reconciliation: tan zevott is added; no documented reason found.",
+    "Medication reconciliation: meftal spas is added; no documented reason found."
+  ],
+  "final_safety_gate": {
+    "passed": true,
+    "blocking_errors": [],
+    "warnings": []
+  }
+}

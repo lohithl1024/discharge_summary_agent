@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Discharge Summary Draft</title>
+  <style>
+    @page { size: A4; margin: 14mm 14mm; }
+
+    :root {
+      --ink: #162033;
+      --muted: #667085;
+      --line: #cfd8e3;
+      --soft: #f6f8fb;
+      --accent: #155e75;
+      --accent-dark: #164e63;
+      --warning: #9a3412;
+      --warning-bg: #fff7ed;
+      --missing-bg: #fef2f2;
+      --missing: #991b1b;
+      --green-bg: #ecfdf5;
+      --green: #047857;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 11.5pt/1.38 "Times New Roman", Times, Georgia, serif;
+      background: #ffffff;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .letterhead {
+      border-bottom: 4px solid var(--accent);
+      padding-bottom: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+    }
+
+    .brand {
+      font-size: 18pt;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: #000000;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 4px;
+      font-size: 10.5pt;
+    }
+
+    .draft-badge {
+      border: 1px solid var(--warning);
+      background: var(--warning-bg);
+      color: var(--warning);
+      padding: 6px 10px;
+      font-weight: 700;
+      text-align: center;
+      min-width: 160px;
+      font-size: 10.5pt;
+    }
+
+    .patient-band {
+      margin: 14px 0;
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 0;
+    }
+
+    .patient-band > div {
+      padding: 12px;
+      border-right: 1px solid var(--line);
+    }
+
+    .patient-band > div:last-child {
+      border-right: 0;
+    }
+
+    .patient-name {
+      font-size: 16pt;
+      font-weight: 800;
+      color: #000000;
+    }
+
+    .micro {
+      color: var(--muted);
+      font-size: 9.5pt;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .metric {
+      background: var(--soft);
+      display: grid;
+      border: 1px solid var(--line);
+      padding: 8px;
+      min-height: 58px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 9pt;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .metric-value {
+      margin-top: 3px;
+      font-weight: 700;
+    }
+
+    .notice {
+      border-left: 4px solid var(--warning);
+      background: var(--warning-bg);
+      padding: 9px 11px;
+      margin: 12px 0;
+      color: #55270b;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .section {
+      border: 1px solid var(--line);
+      margin: 10px 0;
+      break-inside: avoid;
+    }
+
+    .section h2 {
+      margin: 0;
+      padding: 8px 10px;
+      background: #eaf5f8;
+      color: #000000;
+      font-size: 11.5pt;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-body { padding: 10px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10pt;
+    }
+
+    th {
+      text-align: left;
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      padding: 6px;
+    }
+
+    td {
+      border: 1px solid var(--line);
+      padding: 6px;
+      vertical-align: top;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 2px 6px;
+      font-weight: 700;
+      font-size: 9pt;
+      border-radius: 999px;
+    }
+
+    .status-ok { background: var(--green-bg); color: var(--green); }
+    .status-review { background: var(--warning-bg); color: var(--warning); }
+    .status-missing { background: var(--missing-bg); color: var(--missing); }
+
+    .pill {
+      display: inline-block;
+      padding: 2px 6px;
+      border: 1px solid var(--line);
+      background: #fff;
+      margin: 2px 3px 2px 0;
+      font-size: 9pt;
+    }
+
+    .flags li { margin-bottom: 6px; }
+    .small { color: var(--muted); font-size: 9.5pt; }
+    .avoid-break { break-inside: avoid; }
+
+    p { margin: 0 0 7px; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 4px 0; }
+
+    .missing {
+      background: var(--missing-bg);
+      color: var(--missing);
+      padding: 1px 4px;
+      font-weight: 700;
+    }
+
+    .review {
+      background: var(--warning-bg);
+      color: var(--warning);
+      padding: 1px 4px;
+      font-weight: 700;
+    }
+
+    .pending {
+      background: #fefce8;
+      color: #854d0e;
+      padding: 1px 4px;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 9.5pt;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+    }
+
+    @media print { .page { padding: 0; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="letterhead">
+      <div>
+        <div class="brand">Discharge Summary Draft</div>
+        <div class="subtitle">Patient-friendly hospital discharge packet · Source-grounded AI draft</div>
+      </div>
+      <div class="draft-badge">DRAFT ONLY</div>
+    </header>
+
+    <section class="patient-band">
+      <div>
+        <div class="micro">Patient</div>
+        <div class="patient-name">Missing from source documents. Clinician review required.</div>
+        <div class="small">This field is marked missing if not clearly present in the source documents.</div>
+      </div>
+      <div>
+        <div class="micro">Primary Diagnosis</div>
+        <strong>ACUTE GASTROENTERITIS WITH DEHYDRATION</strong>
+      </div>
+    </section>
+
+    <section class="summary-grid">
+      <div class="metric"><div class="metric-label">Admission</div><div class="metric-value">Missing from source documents. Clinician review required.</div></div>
+      <div class="metric"><div class="metric-label">Discharge</div><div class="metric-value">Missing from source documents. Clinician review required.</div></div>
+      <div class="metric"><div class="metric-label">Condition</div><div class="metric-value">Hemodynamically stable</div></div>
+      <div class="metric"><div class="metric-label">Safety Gate</div><div class="metric-value">Passed</div></div>
+    </section>
+
+    <div class="notice">Draft for clinician review only. Not a finalized clinical document. This report is designed to be easy to read, but it still requires clinician review before use.</div>
+
+    <section class="section"><h2>Diagnoses</h2><div class="section-body"><ul><li>Principal: ACUTE GASTROENTERITIS WITH DEHYDRATION</li><li>Secondary: URINARY TRACT INFECTION</li></ul></div></section>
+    <section class="section"><h2>Hospital Course</h2><div class="section-body"><p>Patient presented 1o us with above mentioned complaints. After evaluation, she was admitted to ward., Initial nvestigations showed normal CBC. Serum creatinine (1.65mg/dl) done was elevated. Serum electrolytes done showed low serum sodium( 128 .00mnol/L). Urine routine done showed ketone bodies(+). 10- 12/hpf of pus cells, 15-200hpf of epithelial cells with presence of bactreia hence urine culture and sensitivity sent- report awaited, She was treated with I&#x27;V fluds, I&#x27;V antibiotics, 1V PPI&#x27;s, IV antiemetics and other supportive measures. USG abdomen and pelvis done showed Grade-1 fatty liver changes and muldly edematous part ol ascending colon upto the hepatic flexure- could represent coliis. Repeat Serum Creatinine(1.17mg/d]l) done was normal. TSH and Free T4 done were normal. Stool routine done showed 2-3/hpf of red blood cells, plentv/hpf of pus cells. Patient was adviced to stay back for further management but attenders not willing to the same, hence being discharged at request with following advice</p></div></section>
+    <section class="section avoid-break"><h2>Relevant Investigations</h2><div class="section-body"><table><thead><tr><th>Investigation</th><th>Result / Finding</th><th>Status</th></tr></thead><tbody><tr><td>Serum Creatinine</td><td>1.65 mg/dL</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Serum Creatinine</td><td>1.17 mg/dL</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Repeat Serum Creatinine</td><td>1.17 mg/dL</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Urine Pus Cells</td><td>10- 12/hpf of pus cells</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Urine Epithelial Cells</td><td>15-200hpf of epithelial cells</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Urine Ketone Bodies</td><td>ketone bodies(+)</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Stool Red Blood Cells</td><td>2-3/hpf of red blood cells</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Stool Pus Cells</td><td>plentv/hpf of pus cells</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Rbs</td><td>496.00</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Abg Sodium</td><td>114 mmol/L</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Abg Potassium</td><td>265 mmol/L</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Haemoglobin</td><td>11.80 g/dL</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Platelet Count</td><td>1.80 Lakhs/cumm</td><td><span class="status status-ok">Available</span></td></tr><tr><td>Pending Culture Or Report</td><td>Urine culture and sensitivity sent- report awaited - <span class="pending">PENDING</span></td><td><span class="status status-review">Pending</span></td></tr></tbody></table></div></section>
+    <section class="section avoid-break"><h2>Discharge Medications</h2><div class="section-body"><p class="small">Medication details are separated into fields. Unclear OCR/source items are intentionally highlighted for clinician reconciliation.</p><table><thead><tr><th>Medicine</th><th>Dose</th><th>Frequency</th><th>Duration</th><th>Status</th><th>Review Note</th></tr></thead><tbody><tr><td><strong>raciper mg</strong></td><td>Not clearly documented</td><td>1-0-0</td><td>Not clearly documented</td><td><span class="status status-review">UNCLEAR</span></td><td>Medication line contains OCR noise or mixed fragments.</td></tr><tr><td><strong>emeset i</strong></td><td>Not clearly documented</td><td>Not clearly documented</td><td>Not clearly documented</td><td><span class="status status-review">UNCLEAR</span></td><td>Dose, frequency, and duration were not clearly parsed.</td></tr><tr><td><strong>strong</strong></td><td>Not clearly documented</td><td>1-0-0</td><td>15 DAYS</td><td><span class="status status-ok">STRUCTURED</span></td><td>Parsed from source text</td></tr><tr><td><strong>tan zevott</strong></td><td>Not clearly documented</td><td>1-0-3</td><td>3 DAYS</td><td><span class="status status-review">UNCLEAR</span></td><td>Medication line contains OCR noise or mixed fragments.</td></tr><tr><td><strong>meftal spas</strong></td><td>Not clearly documented</td><td>sos</td><td>Not clearly documented</td><td><span class="status status-ok">STRUCTURED</span></td><td>Parsed from source text</td></tr></tbody></table></div></section>
+
+    <div class="two-col">
+      <section class="section"><h2>Follow-up Instructions</h2><div class="section-body"><p>Urine culture and sensitivity sent- report awaited. Review immediately in case of fever, loose stools, vomiting, fatigue; 09.03.2026</p></div></section>
+      <section class="section"><h2>Pending Results</h2><div class="section-body"><p>Urine culture and sensitivity sent- report awaited. <span class="pending">Pending at discharge.</span></p></div></section>
+    </div>
+
+    <div class="two-col">
+      <section class="section"><h2>Procedures</h2><div class="section-body"><p><span class="missing">Missing from source documents. <span class="review">Clinician review required.</span></span></p></div></section>
+      <section class="section"><h2>Allergies</h2><div class="section-body"><p><span class="missing">Missing from source documents. <span class="review">Clinician review required.</span></span></p></div></section>
+    </div>
+
+    <section class="section"><h2>Clinician Review Flags (12)</h2><div class="section-body"><ul class="flags"><li>pending_results: pending. <span class="review">Clinician review required.</span></li><li>patient_demographics: missing. <span class="review">Clinician review required.</span></li><li>admission_date: missing. <span class="review">Clinician review required.</span></li><li>discharge_date: missing. <span class="review">Clinician review required.</span></li><li>procedures: missing. <span class="review">Clinician review required.</span></li><li>allergies: missing. <span class="review">Clinician review required.</span></li><li>Medication reconciliation: admission_medication_list is unclear; no documented reason found.</li><li>Medication reconciliation: raciper mg is added; no documented reason found.</li><li>Medication reconciliation: emeset i is added; no documented reason found.</li><li>Medication reconciliation: strong is added; no documented reason found.</li><li>Medication reconciliation: tan zevott is added; no documented reason found.</li><li>Medication reconciliation: meftal spas is added; no documented reason found.</li></ul></div></section>
+
+    <footer class="footer">
+      Generated from source documents by the discharge-summary agent. Missing, pending, unclear, and medication-reconciliation items are intentionally flagged instead of guessed.
+    </footer>
+  </main>
+</body>
+</html>
