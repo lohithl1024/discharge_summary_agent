@@ -1,0 +1,42 @@
+[
+  {
+    "name": "med_review_wording",
+    "description": "Use reconciliation-specific wording for medication review flags.",
+    "target_section": "Discharge Medications",
+    "replacement_from": "REVIEW REQUIRED",
+    "replacement_to": "Needs clinician reconciliation",
+    "support_count": 1
+  },
+  {
+    "name": "pending_followup_wording",
+    "description": "Make pending results explicitly require follow-up.",
+    "target_section": "Pending Results",
+    "replacement_from": "Pending at discharge.",
+    "replacement_to": "Pending at discharge; follow-up required.",
+    "support_count": 1
+  },
+  {
+    "name": "draft_status_wording",
+    "description": "Use semicolon status sentence preferred by reviewer.",
+    "target_section": "Status",
+    "replacement_from": "Draft for clinician review only. Not a finalized clinical document.",
+    "replacement_to": "Draft for clinician review only; not a finalized clinical document.",
+    "support_count": 1
+  },
+  {
+    "name": "investigation_heading_wording",
+    "description": "Use reviewer-preferred heading for investigations.",
+    "target_section": "Relevant Investigations",
+    "replacement_from": "Relevant Investigations",
+    "replacement_to": "Key Investigations",
+    "support_count": 1
+  },
+  {
+    "name": "missing_field_wording",
+    "description": "Use concise clinician-review wording for missing source facts.",
+    "target_section": "all",
+    "replacement_from": "Missing from source documents. Clinician review required.",
+    "replacement_to": "Not documented in source notes; clinician review required.",
+    "support_count": 1
+  }
+]

@@ -28,3 +28,9 @@ outputs/*
 !outputs/patient_2_validation_report.json
 !outputs/report.html
 !outputs/report.pdf
+!outputs/part2_learning/
+!outputs/part2_learning/learning_metrics.json
+!outputs/part2_learning/correction_memory.json
+!outputs/part2_learning/draft_edit_pairs.json
+!outputs/part2_learning/improvement_curve.csv
+!outputs/part2_learning/part2_limitations.md

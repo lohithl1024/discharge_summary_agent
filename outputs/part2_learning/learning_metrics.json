@@ -1,0 +1,128 @@
+[
+  {
+    "iteration": 0,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.1156,
+    "avg_reward": 0.8844,
+    "avg_section_match_rate": 0.5417,
+    "learned_rules": 0
+  },
+  {
+    "iteration": 0,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.1043,
+    "avg_reward": 0.8957,
+    "avg_section_match_rate": 0.4167,
+    "learned_rules": 0
+  },
+  {
+    "iteration": 1,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.0689,
+    "avg_reward": 0.9311,
+    "avg_section_match_rate": 0.625,
+    "learned_rules": 1
+  },
+  {
+    "iteration": 1,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.0747,
+    "avg_reward": 0.9253,
+    "avg_section_match_rate": 0.4167,
+    "learned_rules": 1
+  },
+  {
+    "iteration": 2,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.0622,
+    "avg_reward": 0.9378,
+    "avg_section_match_rate": 0.7083,
+    "learned_rules": 2
+  },
+  {
+    "iteration": 2,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.0719,
+    "avg_reward": 0.9281,
+    "avg_section_match_rate": 0.5,
+    "learned_rules": 2
+  },
+  {
+    "iteration": 3,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.0603,
+    "avg_reward": 0.9397,
+    "avg_section_match_rate": 0.7083,
+    "learned_rules": 3
+  },
+  {
+    "iteration": 3,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.0711,
+    "avg_reward": 0.9289,
+    "avg_section_match_rate": 0.5,
+    "learned_rules": 3
+  },
+  {
+    "iteration": 4,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.0568,
+    "avg_reward": 0.9432,
+    "avg_section_match_rate": 0.7917,
+    "learned_rules": 4
+  },
+  {
+    "iteration": 4,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.0697,
+    "avg_reward": 0.9303,
+    "avg_section_match_rate": 0.5833,
+    "learned_rules": 4
+  },
+  {
+    "iteration": 5,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.0,
+    "avg_reward": 1.0,
+    "avg_section_match_rate": 1.0,
+    "learned_rules": 5
+  },
+  {
+    "iteration": 5,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.0274,
+    "avg_reward": 0.9726,
+    "avg_section_match_rate": 0.9167,
+    "learned_rules": 5
+  },
+  {
+    "iteration": 6,
+    "split": "train",
+    "examples": 2,
+    "avg_edit_distance": 0.0,
+    "avg_reward": 1.0,
+    "avg_section_match_rate": 1.0,
+    "learned_rules": 5
+  },
+  {
+    "iteration": 6,
+    "split": "heldout",
+    "examples": 1,
+    "avg_edit_distance": 0.0274,
+    "avg_reward": 0.9726,
+    "avg_section_match_rate": 0.9167,
+    "learned_rules": 5
+  }
+]

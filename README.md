@@ -80,6 +80,26 @@ outputs/<patient_id>_validation_report.json
 
 The validation report includes missing fields, pending results, unsupported facts removed, medication extraction details, medication reconciliation changes, safety concerns, review flags, and final safety-gate status.
 
+## Part 2: Learning From Simulated Doctor Edits
+
+Run the stretch learning demo:
+
+```bash
+python3 src/learning.py --summary outputs/patient_2_summary.md --output-dir outputs/part2_learning --iterations 6
+```
+
+This creates:
+
+```text
+outputs/part2_learning/learning_metrics.json
+outputs/part2_learning/correction_memory.json
+outputs/part2_learning/draft_edit_pairs.json
+outputs/part2_learning/improvement_curve.csv
+outputs/part2_learning/part2_limitations.md
+```
+
+The simulated doctor applies a hidden editing policy. The reward is `1 - normalized_edit_distance`, so lower edit burden produces higher reward. The learning mechanism is a structured correction memory that learns wording and formatting preferences only; it does not add or change clinical facts, so the Part 1 no-fabrication guardrails remain intact.
+
 ## Next Implementation Steps
 
 1. Add `pdf_ingestion.py` with text extraction and OCR fallback.
